@@ -33,11 +33,12 @@ const addNote = (title,body) =>
 {
     const notes = loadNotes()
     //const duplicateNotes = notes.filter((note) => note.title === title)
-    const duplicateNote = notes.find((notes) => note.title === title)
+    const duplicateNote = notes.find((note) => note.title === title)
     // const duplicateNotes = notes.filter(function(notes){
     //     return notes.title === title
 
     // })
+
     if(!duplicateNote)
     {
         notes.push(
@@ -47,11 +48,11 @@ const addNote = (title,body) =>
             }
         )
     saveNotes(notes)
-    console.log('New note added')
+    console.log(chalk.green.inverse('New note added'))
         }
     else
     {
-        console.log('duplicate note was found')
+        console.log(chalk.red.inverse('duplicate note was found'))
     }
 }
 // const loadNotes = function()
